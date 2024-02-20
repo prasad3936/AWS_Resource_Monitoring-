@@ -1,0 +1,28 @@
+#!/bin/bash
+###########
+#Author:prasadcpatil
+#Date:20/02/2024
+#version:1
+#This Script will report aws resources
+######################################
+set -x
+#AWS S3
+#AWS EC2
+#AWS Lambda
+#AWS IAM
+
+#List S3 Buckets
+echo "Print List of S3 Buckets"
+aws s3 ls
+
+#List EC2 Instances
+echo "Print list of EC2 Instances"
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId' ##showing instance id only
+
+#List Lambda
+echo "Print List of Lambda functions"
+aws lambda list-functions
+
+#list IAM Users
+echo "Print list of IAM Users"
+aws lambda ls
